@@ -1,14 +1,22 @@
 import requests
 
 def fetch_weather_data(city_name):
+    
+    api_key = 'f22f72d06e204caab4874935260301'
+    base_url = 'https://api.weatherapi.com/v1/current.json'
 
+    params = {
+        'key': api_key,
+        'q': city_name
+    }
 
-    api_key    = 'your_api_key_here'    base_url   = 'http://api.openweathermap.org/data/2.5/weather'    params     = {
-        'q': city_name,
-        'appid': api_key,
-        'units': 'metric'
-    }    response  = requests.get(base_url, params=params)    if response.status_code == 200:
+    response = requests.get(base_url, params=params)
+
+    if response.status_code == 200:
         return response.json()
     else:
-        return {'error': 'City not found or API request failed.'}    api_key = 'your_api_key_here'  base_url = 'http://api.openweathermap.org/data/2.5/weather'    params = {       'q': city_name,                                                     
-                                                                                                                                                                             
+        return {'error': 'City not found or API request failed.'}
+
+print(fetch_weather_data('London'))
+print(fetch_weather_data('New York'))   
+
