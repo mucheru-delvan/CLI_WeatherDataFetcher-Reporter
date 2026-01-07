@@ -18,5 +18,5 @@ def fetch_weather_data(city_name):
         return {'error': 'City not found or API request failed.'}
 
 print(fetch_weather_data('London'))
-print(fetch_weather_data('New York'))   
+#print(fetch_weather_data('New York'))   
 
