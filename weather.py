@@ -11,10 +11,13 @@ class WeatherFetcher:
             'key': self.api_key,
             'q': city_name
         }
+         
 
-        response = requests.get(self.base_url, params=params)
+        try:
+            response = requests.get(self.base_url, params=params)
 
-        if response.status_code == 200:
+            response.raise_for_status()
             return response.json()
-        else:
-            return {'error': 'City not found or API request failed.'}
+    
+        except requests.exceptions.RequestException as e:
+            return {'error': str(e)}    
