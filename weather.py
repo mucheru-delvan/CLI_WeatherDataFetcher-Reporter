@@ -20,4 +20,7 @@ class WeatherFetcher:
             return response.json()
     
         except requests.exceptions.RequestException as e:
-            return {'error': str(e)}    
+            return {'error': str(e)} 
+
+
+   
