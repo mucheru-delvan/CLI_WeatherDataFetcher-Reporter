@@ -23,11 +23,32 @@ def display_weather(data):
     print("\n🌤️ Weather Report 🌤️")
     print(f"City: {city}, {country}")
     print(f"Local Time: {local_time}\n")
-
     print(f"Temperature: {temp}°C (Feels like {feels_like}°C)")
     print(f"Condition: {condition} {time_icon}")
     print(f"Humidity: {humidity}%")
     print(f"Wind: {wind_speed} km/h ({wind_dir})")
+
+
+def write_weather_report_txt(data, filename="weather_report.txt"):
+    location = data.get("location", {})
+    current = data.get("current", {})
+
+    lines = [
+        "WEATHER REPORT",
+        "=" * 30,
+        "",
+        f"Location     : {location.get('name', 'N/A')}, {location.get('country', 'N/A')}",
+        f"Local Time   : {location.get('localtime', 'N/A')}",
+        "",
+        f"Temperature  : {current.get('temp_c', 'N/A')} °C",
+        f"Feels Like   : {current.get('feelslike_c', 'N/A')} °C",
+        f"Condition    : {current.get('condition', {}).get('text', 'N/A')}",
+        f"Humidity     : {current.get('humidity', 'N/A')}%",
+        f"Wind Speed   : {current.get('wind_kph', 'N/A')} km/h",
+    ]
+
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write("\n".join(lines))
 
 
 def main():
@@ -44,7 +65,11 @@ def main():
         return
 
     display_weather(data)
+    write_weather_report_txt(data)
+
+    print("\n✅ Weather report saved to weather_report.txt")
 
 
 if __name__ == "__main__":
     main()
+
