@@ -29,9 +29,12 @@ def display_weather(data):
     print(f"Wind: {wind_speed} km/h ({wind_dir})")
 
 
-def write_weather_report_txt(data, filename="weather_report.txt"):
+def write_weather_report_txt(data):
     location = data.get("location", {})
     current = data.get("current", {})
+
+    city = location.get("name", "unknown").lower()
+    filename = f"{city}_weather_report.txt"
 
     lines = [
         "WEATHER REPORT",
@@ -49,6 +52,8 @@ def write_weather_report_txt(data, filename="weather_report.txt"):
 
     with open(filename, "w", encoding="utf-8") as file:
         file.write("\n".join(lines))
+
+    print(f"Saved report as {filename}")
 
 
 def main():

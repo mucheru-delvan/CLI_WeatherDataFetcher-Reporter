@@ -22,5 +22,31 @@ class WeatherFetcher:
         except requests.exceptions.RequestException as e:
             return {'error': str(e)} 
 
+    def display_weather(self, data):
+        location = data["location"]
+        current = data["current"]
 
-   
+        city = location["name"]
+        country = location["country"]
+        local_time = location["localtime"]
+
+        temp = current["temp_c"]
+        
+        condition = current["condition"]["text"]
+        humidity = current["humidity"]
+        wind_speed = current["wind_kph"]
+        wind_dir = current["wind_dir"]
+        is_day = current["is_day"]
+
+        time_icon = "☀️" if is_day == 1 else "🌙"
+
+        print("\n🌤️ Weather Report 🌤️")
+        print(f"City: {city}, {country}")
+        print(f"Local Time: {local_time}\n")
+        print(f"Temperature: {temp}°C (Feels like {feels_like}°C)")
+        print(f"Condition: {condition} {time_icon}")
+        print(f"Humidity: {humidity}%")
+        print(f"Wind: {wind_speed} km/h ({wind_dir})")
+
+            
+    
