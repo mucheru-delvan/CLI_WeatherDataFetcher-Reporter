@@ -1,0 +1,11 @@
+WEATHER REPORT
+==============================
+
+Location     : Kinshasa, Democratic Republic of Congo
+Local Time   : 2026-01-10 21:03
+
+Temperature  : 28.3 °C
+Feels Like   : 36.0 °C
+Condition    : Patchy light rain with thunder
+Humidity     : 70%
+Wind Speed   : 3.6 km/h
