@@ -16,6 +16,7 @@ def get_forecast_url(city, days):
     return response.json()
 
 forecast_data = get_forecast_url('London', 1)
-pprint(forecast_data['forecast']["forecastday"][0])  # Print the keys of the forecast data
-
+data = list(forecast_data['forecast']["forecastday"])
+# Print the keys of the forecast data
+pprint(data[0]['day'])
 
