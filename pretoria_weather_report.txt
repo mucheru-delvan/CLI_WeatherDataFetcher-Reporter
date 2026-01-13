@@ -1,0 +1,9 @@
+WEATHER REPORT
+==============================
+
+Location     : Pretoria, South Africa
+Local Time   : 2026-01-13 22:24
+
+Highest Temperature for the past 7 days : 31.7 °C
+Average Humidity for the past 7 days    : 67.00%
+Day with Most Precipitation  : 2026-01-16

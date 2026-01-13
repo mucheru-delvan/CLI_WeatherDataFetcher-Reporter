@@ -1,34 +1,6 @@
 from weather import WeatherFetcher
 from config import DEFAULT_CITY
 
-
-def write_weather_report_txt(data):
-    location = data.get("location", {})
-    current = data.get("current", {})
-
-    city = location.get("name", "unknown").lower()
-    filename = f"{city}_weather_report.txt"
-
-    highest_temp_past_seven_days = max(day['day']['maxtemp_c'] for day in data['forecast']['forecastday'])
-
-    lines = [
-        "WEATHER REPORT",
-        "=" * 30,
-        "",
-        f"Location     : {location.get('name', 'N/A')}, {location.get('country', 'N/A')}",
-        f"Local Time   : {location.get('localtime', 'N/A')}",
-        "",
-        f"Highest Temperature for the past 7 days : {highest_temp_past_seven_days} °C",
-        f"Humidity     : {current.get('humidity', 'N/A')}%",
-        
-    ]
-
-    with open(filename, "w", encoding="utf-8") as file:
-        file.write("\n".join(lines))
-
-    print(f"Saved report as {filename}")
-
-
 def main():
     weather_fetcher = WeatherFetcher()
 
@@ -42,9 +14,9 @@ def main():
         print(f"❌ Error fetching weather data: {data['error']}")
         return
 
-    write_weather_report_txt(data)
+    report_file = weather_fetcher.write_weather_report_txt(data)
 
-    print("\n✅ Weather report saved to weather_report.txt")
+    print(f"\n✅ Weather report saved to {report_file}")
 
 
 if __name__ == "__main__":
