@@ -18,10 +18,10 @@ def get_forecast_url(city, days):
 forecast_data = get_forecast_url('London', 7)
 
 forecast_data_seven = forecast_data['forecast']['forecastday']
-last_7_days_temps = forecast_data_seven
 
 
-highest_temp = max(day['day']['maxtemp_c'] for day in last_7_days_temps)
+
+highest_temp = max(day['day']['maxtemp_c'] for day in forecast_data_seven)
 print(f"The highest temperature in the past 7 days in London was: {highest_temp} °C")
 
 

@@ -9,7 +9,7 @@ def write_weather_report_txt(data):
     city = location.get("name", "unknown").lower()
     filename = f"{city}_weather_report.txt"
 
-    highest_temp_past_seven_days = current.get("temp_c", "N/A")
+    highest_temp_past_seven_days = max(day['day']['maxtemp_c'] for day in data['forecast']['forecastday'])
 
     lines = [
         "WEATHER REPORT",
@@ -18,7 +18,7 @@ def write_weather_report_txt(data):
         f"Location     : {location.get('name', 'N/A')}, {location.get('country', 'N/A')}",
         f"Local Time   : {location.get('localtime', 'N/A')}",
         "",
-        f"Temperature  : {current.get('temp_c', 'N/A')} °C",
+        f"Highest Temperature for the past 7 days : {highest_temp_past_seven_days} °C",
         f"Humidity     : {current.get('humidity', 'N/A')}%",
         
     ]

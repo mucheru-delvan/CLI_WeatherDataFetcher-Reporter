@@ -23,4 +23,8 @@ class WeatherFetcher:
         except requests.exceptions.RequestException as e:
             return {'error': str(e)} 
     
+    def analyze_data(self,data):
+        highest_temp = max(day['day']['maxtemp_c'] for day in data['forecast']['forecastday'])
+        
+        return highest_temp
 
