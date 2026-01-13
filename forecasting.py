@@ -15,8 +15,13 @@ def get_forecast_url(city, days):
     response = requests.get(base_url, params={'key': api_key, 'q': city, 'days': days})
     return response.json()
 
-forecast_data = get_forecast_url('London', 1)
-data = list(forecast_data['forecast']["forecastday"])
-# Print the keys of the forecast data
-pprint(data[0]['day'])
+forecast_data = get_forecast_url('London', 7)
+
+forecast_data_seven = forecast_data['forecast']['forecastday']
+last_7_days_temps = forecast_data_seven
+
+
+highest_temp = max(day['day']['maxtemp_c'] for day in last_7_days_temps)
+print(f"The highest temperature in the past 7 days in London was: {highest_temp} °C")
+
 

@@ -6,10 +6,11 @@ class WeatherFetcher:
         self.api_key = api_key
         self.base_url = base_url
 
-    def fetch_weather_data(self, city_name):
+    def fetch_forecast_data(self, city_name, days=7):
         params = {
             'key': self.api_key,
-            'q': city_name
+            'q': city_name,
+            'days': days
         }
          
 
@@ -21,5 +22,5 @@ class WeatherFetcher:
     
         except requests.exceptions.RequestException as e:
             return {'error': str(e)} 
-
     
+

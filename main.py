@@ -9,6 +9,8 @@ def write_weather_report_txt(data):
     city = location.get("name", "unknown").lower()
     filename = f"{city}_weather_report.txt"
 
+    highest_temp_past_seven_days = current.get("temp_c", "N/A")
+
     lines = [
         "WEATHER REPORT",
         "=" * 30,
@@ -17,10 +19,8 @@ def write_weather_report_txt(data):
         f"Local Time   : {location.get('localtime', 'N/A')}",
         "",
         f"Temperature  : {current.get('temp_c', 'N/A')} °C",
-        f"Feels Like   : {current.get('feelslike_c', 'N/A')} °C",
-        f"Condition    : {current.get('condition', {}).get('text', 'N/A')}",
         f"Humidity     : {current.get('humidity', 'N/A')}%",
-        f"Wind Speed   : {current.get('wind_kph', 'N/A')} km/h",
+        
     ]
 
     with open(filename, "w", encoding="utf-8") as file:
@@ -36,7 +36,7 @@ def main():
     if not city_name:
         city_name = DEFAULT_CITY
 
-    data = weather_fetcher.fetch_weather_data(city_name)
+    data = weather_fetcher.fetch_forecast_data(city_name)
 
     if "error" in data:
         print(f"❌ Error fetching weather data: {data['error']}")
