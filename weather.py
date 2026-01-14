@@ -22,7 +22,7 @@ class WeatherFetcher:
             }
 
             try:
-                response = requests.get(self., params=params)
+                response = requests.get(self.base_url, params=params)
                 response.raise_for_status()
                 data = response.json()
                 history_days.append(data["forecast"]["forecastday"][0])
