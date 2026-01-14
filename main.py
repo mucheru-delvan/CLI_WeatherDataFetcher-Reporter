@@ -1,3 +1,4 @@
+from dbm import error
 from weather import WeatherFetcher
 from config import DEFAULT_CITY
 
@@ -8,13 +9,9 @@ def main():
     if not city_name:
         city_name = DEFAULT_CITY
 
-    data = weather_fetcher.fetch_forecast_data(city_name)
+    data = weather_fetcher.fetch_past_7_days(city_name)
 
-    if "error" in data:
-        print(f"❌ Error fetching weather data: {data['error']}")
-        return
-
-    report_file = weather_fetcher.write_weather_report_txt(data)
+    report_file = weather_fetcher.write_weather_report_txt(city_name, data)
 
     print(f"\n✅ Weather report saved to {report_file}")
 
