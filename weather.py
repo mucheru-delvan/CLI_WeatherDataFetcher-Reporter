@@ -46,7 +46,7 @@ class WeatherFetcher:
 
     def write_weather_report_txt(self, city_name, history_days):
         highest, avg_humidity, rain_day = self.analyze_history(history_days)
-        filename = f"{city_name.lower()}_weather_history_report.txt"
+        filename = f"{city_name.title()}_weather_history_report.txt"
 
         lines = [
             "WEATHER HISTORY REPORT (PAST 7 DAYS)",
@@ -62,3 +62,4 @@ class WeatherFetcher:
             f.write("\n".join(lines))
 
         print(f"Saved report as {filename}")
+        return filename

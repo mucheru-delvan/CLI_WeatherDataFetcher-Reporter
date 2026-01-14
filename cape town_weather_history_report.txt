@@ -1,0 +1,7 @@
+WEATHER HISTORY REPORT (PAST 7 DAYS)
+========================================
+
+Location                    : Cape Town
+Highest Temperature         : 32.7 °C
+Average Humidity            : 65.14 %
+Day with Most Precipitation : 2026-01-14
