@@ -1,0 +1,7 @@
+WEATHER HISTORY REPORT (PAST 7 DAYS)
+========================================
+
+Location                    : Saint John's
+Highest Temperature         : 26.6 °C
+Average Humidity            : 74.29 %
+Day with Most Precipitation : 2026-01-14

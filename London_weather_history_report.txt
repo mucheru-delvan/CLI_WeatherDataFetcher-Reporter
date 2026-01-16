@@ -1,7 +1,0 @@
-WEATHER HISTORY REPORT (PAST 7 DAYS)
-========================================
-
-Location                    : London
-Highest Temperature         : 10.8 °C
-Average Humidity            : 86.14 %
-Day with Most Precipitation : 2026-01-13

@@ -1,7 +1,0 @@
-WEATHER HISTORY REPORT (PAST 7 DAYS)
-========================================
-
-Location                    : Mombasa
-Highest Temperature         : 30.9 °C
-Average Humidity            : 76.86 %
-Day with Most Precipitation : 2026-01-09
